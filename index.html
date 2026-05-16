@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAX SHOPPING — Mode & Accessoires</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --noir: #0A0A0A;
+  --blanc: #FAFAF8;
+  --vert: #1A6B4A;
+  --vert-clair: #E8F5EE;
+  --vert-accent: #25A76A;
+  --or: #D4A843;
+  --or-pale: #FBF3E0;
+  --gris: #6B7280;
+  --gris-clair: #F3F4F6;
+  --rouge: #DC2626;
+  --brun: #2D1B0E;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--blanc);
+  color: var(--noir);
+  overflow-x: hidden;
+}
+
+/* ── ANNOUNCEMENT BAR ── */
+.announce {
+  background: var(--vert);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.announce span { color: var(--or); font-weight: 700; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 500;
+  background: var(--blanc);
+  border-bottom: 1px solid #E5E7EB;
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+  box-shadow: 0 1px 12px rgba(0,0,0,.06);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 700;
+  color: var(--noir); text-decoration: none;
+  letter-spacing: .06em;
+}
+.logo span {
+  color: var(--vert);
+  font-style: italic;
+}
+.logo sup {
+  font-size: 10px; font-family: 'Outfit', sans-serif;
+  font-weight: 600; letter-spacing: .15em;
+  color: var(--or); vertical-align: super;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-links a {
+  text-decoration: none; color: var(--gris);
+  font-size: 13px; font-weight: 500; letter-spacing: .04em;
+  transition: color .2s; text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--vert); }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.cart-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--vert); color: #fff;
+  border: none; padding: 10px 20px; cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 600;
+  transition: all .2s; border-radius: 2px;
+}
+.cart-btn:hover { background: var(--brun); }
+.cart-num {
+  background: var(--or); color: var(--noir);
+  border-radius: 50%; width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 88vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.hero-left {
+  background: var(--noir);
+  display: flex; flex-direction: column;
+  justify-content: center; padding: 80px 64px;
+  position: relative;
+}
+.hero-left::after {
+  content: '';
+  position: absolute; right: -1px; top: 0; bottom: 0; width: 60px;
+  background: var(--blanc);
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--or); margin-bottom: 24px; font-weight: 600;
+}
+.hero-tag::before {
+  content: ''; width: 32px; height: 2px; background: var(--or);
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 5.5vw, 80px);
+  line-height: .95; color: #fff;
+  font-weight: 700; margin-bottom: 28px;
+}
+.hero h1 em {
+  color: var(--or); font-style: italic; display: block;
+}
+.hero-sub {
+  color: rgba(255,255,255,.5); font-size: 15px;
+  line-height: 1.75; max-width: 400px; margin-bottom: 48px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--or); color: var(--noir);
+  padding: 14px 32px; font-size: 13px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  border: none; cursor: pointer; text-decoration: none;
+  transition: all .25s; font-family: 'Outfit', sans-serif;
+  border-radius: 2px;
+}
+.btn-gold:hover { background: #e8be55; transform: translateY(-2px); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: #fff;
+  padding: 14px 28px; font-size: 13px; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.3); cursor: pointer;
+  text-decoration: none; transition: all .25s;
+  font-family: 'Outfit', sans-serif; border-radius: 2px;
+}
+.btn-outline:hover { border-color: var(--or); color: var(--or); }
+
+.hero-right {
+  background: linear-gradient(145deg, #f0ede6 0%, #e8e2d5 100%);
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 40px; position: relative; overflow: hidden;
+}
+.hero-right::before {
+  content: 'MAX SHOPPING';
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 90px; font-weight: 700;
+  color: rgba(26,107,74,.06); white-space: nowrap;
+  transform: rotate(-20deg); pointer-events: none;
+  letter-spacing: .1em;
+}
+.hero-showcase {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  width: 100%; max-width: 420px; position: relative; z-index: 1;
+}
+.showcase-item {
+  background: #fff; border-radius: 4px;
+  padding: 20px; text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+  transition: transform .3s;
+}
+.showcase-item:hover { transform: translateY(-6px); }
+.showcase-item:nth-child(2) { margin-top: 32px; }
+.showcase-item:nth-child(4) { margin-top: -32px; }
+.showcase-emoji { font-size: 56px; display: block; margin-bottom: 10px; }
+.showcase-name {
+  font-size: 12px; font-weight: 600; color: var(--noir);
+  letter-spacing: .04em; margin-bottom: 4px;
+}
+.showcase-price { font-size: 13px; color: var(--vert); font-weight: 700; }
+
+/* ── STATS ── */
+.stats-bar {
+  background: var(--vert);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stat {
+  padding: 24px 32px; text-align: center;
+  border-right: 1px solid rgba(255,255,255,.15);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.stat:last-child { border: none; }
+.stat-icon { font-size: 22px; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700; color: var(--or);
+}
+.stat-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+
+/* ── CATÉGORIES ── */
+.categories { padding: 80px 48px; }
+.sec-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+.sec-tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--vert); font-weight: 600; margin-bottom: 8px; }
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; line-height: 1.1;
+}
+.see-all {
+  color: var(--vert); text-decoration: none; font-size: 13px;
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 6px; white-space: nowrap;
+  border-bottom: 1px solid var(--vert); padding-bottom: 2px;
+}
+.cats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.cat-card {
+  position: relative; aspect-ratio: 3/4; overflow: hidden;
+  cursor: pointer; border-radius: 4px;
+}
+.cat-card:first-child { grid-row: span 2; aspect-ratio: auto; }
+.cat-bg {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 72px; transition: transform .5s ease;
+}
+.cat-card:hover .cat-bg { transform: scale(1.08); }
+.cat-card:nth-child(1) .cat-bg { background: linear-gradient(145deg, #1A0A30, #3D1A6B); font-size: 100px; }
+.cat-card:nth-child(2) .cat-bg { background: linear-gradient(145deg, #0A2010, #1A6B4A); }
+.cat-card:nth-child(3) .cat-bg { background: linear-gradient(145deg, #2D1B0E, #6B3A1F); }
+.cat-card:nth-child(4) .cat-bg { background: linear-gradient(145deg, #0A1A30, #1A4A6B); }
+.cat-card:nth-child(5) .cat-bg { background: linear-gradient(145deg, #301A0A, #6B4A1A); }
+.cat-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 55%);
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 20px;
+}
+.cat-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 700; color: #fff;
+  margin-bottom: 4px;
+}
+.cat-count { font-size: 12px; color: rgba(255,255,255,.6); letter-spacing: .06em; }
+
+/* ── PRODUITS ── */
+.products-section { padding: 0 48px 80px; }
+.filters {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px;
+}
+.filter-btn {
+  padding: 9px 20px; border: 1.5px solid #E5E7EB;
+  background: transparent; cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+  font-weight: 600; transition: all .2s; border-radius: 2px;
+  color: var(--gris);
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--vert); color: #fff; border-color: var(--vert);
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: #fff; border: 1px solid #F0F0EE;
+  border-radius: 4px; overflow: hidden;
+  transition: box-shadow .3s, transform .3s;
+  cursor: pointer;
+}
+.product-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,.1);
+  transform: translateY(-4px);
+}
+.product-card:hover .p-overlay { opacity: 1; }
+.product-card:hover .p-img { transform: scale(1.05); }
+.p-img-wrap {
+  position: relative; aspect-ratio: 1; overflow: hidden;
+  background: var(--gris-clair);
+}
+.p-img {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 72px; transition: transform .4s ease;
+}
+.p-badge {
+  position: absolute; top: 12px; left: 12px;
+  padding: 4px 10px; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; border-radius: 2px; z-index: 2;
+}
+.badge-promo { background: var(--rouge); color: #fff; }
+.badge-new { background: var(--vert); color: #fff; }
+.badge-top { background: var(--or); color: var(--noir); }
+.p-overlay {
+  position: absolute; inset: 0; background: rgba(10,10,10,.45);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+  opacity: 0; transition: opacity .3s;
+}
+.p-add-btn {
+  background: #fff; color: var(--noir);
+  border: none; padding: 11px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  cursor: pointer; transition: all .2s; border-radius: 2px;
+}
+.p-add-btn:hover { background: var(--or); }
+.p-wa-btn {
+  background: #25D366; color: #fff;
+  border: none; padding: 9px 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px; font-weight: 600;
+  cursor: pointer; transition: all .2s; border-radius: 2px;
+  display: flex; align-items: center; gap: 6px;
+}
+.p-info { padding: 16px; }
+.p-cat { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--gris); margin-bottom: 6px; }
+.p-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; line-height: 1.2; }
+.p-prices { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.p-price { font-size: 17px; font-weight: 700; color: var(--vert); }
+.p-old { font-size: 13px; color: var(--gris); text-decoration: line-through; }
+.p-save { font-size: 11px; font-weight: 700; color: var(--rouge); background: #FEF2F2; padding: 2px 7px; border-radius: 2px; }
+
+/* ── PROMO SECTION ── */
+.promo-section {
+  margin: 0 48px 80px;
+  background: var(--noir);
+  border-radius: 8px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr auto;
+  position: relative;
+}
+.promo-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,.15) 0%, transparent 60%);
+}
+.promo-content { padding: 56px 64px; position: relative; z-index: 1; }
+.promo-tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--or); font-weight: 600; margin-bottom: 16px; }
+.promo-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 52px); font-weight: 700;
+  color: #fff; line-height: 1.05; margin-bottom: 16px;
+}
+.promo-title span { color: var(--or); font-style: italic; }
+.promo-sub { color: rgba(255,255,255,.5); font-size: 14px; margin-bottom: 32px; max-width: 380px; line-height: 1.7; }
+.timer-wrap {
+  padding: 40px 56px; background: rgba(255,255,255,.04);
+  border-left: 1px solid rgba(255,255,255,.08);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 24px;
+}
+.timer-label-top { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+.timer { display: flex; gap: 12px; }
+.t-block { text-align: center; min-width: 68px; }
+.t-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 700; color: var(--or);
+  display: block; line-height: 1;
+  background: rgba(255,255,255,.05);
+  padding: 10px 12px; border: 1px solid rgba(212,168,67,.2);
+}
+.t-sep { font-size: 36px; color: var(--or); align-self: center; line-height: 1; padding-bottom: 16px; }
+.t-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 6px; display: block; }
+
+/* ── MOBILE MONEY ── */
+.payment-section { padding: 0 48px 80px; }
+.payment-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.payment-card {
+  border: 1.5px solid #E5E7EB; border-radius: 8px;
+  padding: 32px 28px; text-align: center;
+  transition: all .3s;
+}
+.payment-card:hover { border-color: var(--vert); box-shadow: 0 8px 30px rgba(26,107,74,.1); }
+.payment-icon { font-size: 44px; margin-bottom: 16px; display: block; }
+.payment-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.payment-desc { font-size: 13px; color: var(--gris); line-height: 1.6; }
+
+/* ── AVIS ── */
+.reviews-section { background: var(--gris-clair); padding: 80px 48px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.review-card {
+  background: #fff; border-radius: 6px;
+  padding: 28px; position: relative;
+}
+.review-stars { color: var(--or); font-size: 15px; margin-bottom: 14px; letter-spacing: 2px; }
+.review-text { font-size: 14px; line-height: 1.8; color: #444; font-style: italic; margin-bottom: 20px; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.r-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--vert); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700;
+}
+.r-name { font-weight: 600; font-size: 14px; }
+.r-loc { font-size: 12px; color: var(--gris); }
+.r-verified { font-size: 11px; color: var(--vert); font-weight: 600; margin-top: 2px; }
+
+/* ── CTA WHATSAPP ── */
+.wa-section {
+  background: linear-gradient(135deg, #1A6B4A 0%, #0D3D28 100%);
+  padding: 80px 48px; text-align: center; color: #fff;
+}
+.wa-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 52px); font-weight: 700; margin-bottom: 16px;
+}
+.wa-section h2 span { color: var(--or); font-style: italic; }
+.wa-section p { color: rgba(255,255,255,.65); font-size: 15px; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.wa-big-btn {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: #25D366; color: #fff;
+  padding: 18px 44px; font-size: 16px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  border: none; cursor: pointer; text-decoration: none;
+  transition: all .25s; font-family: 'Outfit', sans-serif;
+  border-radius: 4px;
+}
+.wa-big-btn:hover { background: #1ebe5d; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(37,211,102,.3); }
+.wa-info { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,.4); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--noir); color: rgba(255,255,255,.5);
+  padding: 60px 48px 28px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 48px;
+}
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: .06em; display: block; margin-bottom: 16px; }
+.footer-logo span { color: var(--vert); font-style: italic; }
+.footer-desc { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,.4); margin-bottom: 20px; }
+.social-links { display: flex; gap: 10px; }
+.social-link {
+  width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer; transition: all .2s; text-decoration: none;
+}
+.social-link:hover { border-color: var(--or); background: rgba(212,168,67,.1); }
+.footer-col h4 { font-family: 'Cormorant Garamond', serif; color: #fff; font-size: 18px; margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { color: rgba(255,255,255,.4); text-decoration: none; font-size: 13px; transition: color .2s; }
+.footer-col a:hover { color: var(--or); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px;
+}
+.footer-bottom a { color: var(--or); text-decoration: none; }
+
+/* ── PANIER SIDEBAR ── */
+.cart-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.55);
+  z-index: 800; opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+.cart-drawer {
+  position: fixed; top: 0; right: -100%; width: min(440px, 100%);
+  height: 100vh; background: #fff; z-index: 900;
+  transition: right .35s cubic-bezier(.4,0,.2,1);
+  display: flex; flex-direction: column;
+}
+.cart-drawer.open { right: 0; }
+.cart-head {
+  padding: 24px 28px; border-bottom: 1px solid #F0F0EE;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cart-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; }
+.cart-head-right { display: flex; align-items: center; gap: 14px; }
+.cart-count-label { font-size: 12px; color: var(--gris); }
+.close-cart { background: none; border: 1.5px solid #E5E7EB; width: 36px; height: 36px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+.close-cart:hover { border-color: var(--rouge); color: var(--rouge); }
+.cart-body { flex: 1; overflow-y: auto; padding: 20px 28px; }
+.cart-empty { text-align: center; padding: 80px 20px; color: var(--gris); }
+.cart-empty-icon { font-size: 52px; display: block; margin-bottom: 16px; }
+.cart-empty p { font-size: 15px; margin-bottom: 20px; }
+.cart-item {
+  display: flex; gap: 14px; padding: 16px 0;
+  border-bottom: 1px solid #F5F5F3;
+}
+.ci-img {
+  width: 76px; height: 76px; flex-shrink: 0;
+  background: var(--gris-clair); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px;
+}
+.ci-info { flex: 1; }
+.ci-name { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.ci-price { color: var(--vert); font-weight: 700; font-size: 15px; margin-bottom: 10px; }
+.ci-qty { display: flex; align-items: center; gap: 10px; }
+.qty-btn {
+  width: 28px; height: 28px; border: 1.5px solid #E5E7EB;
+  background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 16px; transition: all .2s; font-weight: 700;
+}
+.qty-btn:hover { background: var(--vert); color: #fff; border-color: var(--vert); }
+.qty-val { font-weight: 700; min-width: 22px; text-align: center; }
+.ci-del { background: none; border: none; color: #D1D5DB; cursor: pointer; font-size: 20px; align-self: flex-start; transition: color .2s; }
+.ci-del:hover { color: var(--rouge); }
+.cart-foot { padding: 20px 28px; border-top: 1px solid #F0F0EE; }
+.cart-subtotal { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; color: var(--gris); }
+.cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.cart-total-row span:first-child { font-size: 15px; font-weight: 600; }
+.cart-total-amount { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: var(--vert); }
+.checkout-wa {
+  width: 100%; padding: 15px; background: #25D366; color: #fff;
+  border: none; font-family: 'Outfit', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; cursor: pointer; transition: background .2s;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-bottom: 10px; border-radius: 3px;
+}
+.checkout-wa:hover { background: #1ebe5d; }
+.checkout-mm {
+  width: 100%; padding: 13px; background: var(--or); color: var(--noir);
+  border: none; font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; cursor: pointer; transition: background .2s;
+  border-radius: 3px;
+}
+.checkout-mm:hover { background: #e8be55; }
+
+/* ── NOTIFICATION ── */
+.toast {
+  position: fixed; bottom: 28px; right: 28px;
+  background: var(--noir); color: #fff;
+  padding: 14px 22px; font-size: 13px; font-weight: 500;
+  border-radius: 4px; z-index: 9999;
+  transform: translateY(80px); opacity: 0;
+  transition: all .35s cubic-bezier(.4,0,.2,1);
+  display: flex; align-items: center; gap: 10px;
+  border-left: 3px solid var(--vert);
+  max-width: 320px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.2);
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* ── RESPONSIVE ── */
+@media(max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { display: none; }
+  .hero-left { padding: 60px 24px; }
+  .hero-left::after { display: none; }
+  .stats-bar { grid-template-columns: repeat(2,1fr); }
+  .categories, .products-section, .payment-section, .reviews-section, .wa-section, footer { padding-left: 20px; padding-right: 20px; }
+  .cats-grid { grid-template-columns: repeat(2,1fr); }
+  .cat-card:first-child { grid-row: auto; }
+  .promo-section { margin: 0 20px 60px; grid-template-columns: 1fr; }
+  .timer-wrap { border-left: none; border-top: 1px solid rgba(255,255,255,.08); flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .payment-cards { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="announce">🎉 Livraison gratuite dès <span>30 000 FCFA</span> d'achat — Commandez sur WhatsApp !</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">MAX<span>shopping</span><sup>™</sup></a>
+  <ul class="nav-links">
+    <li><a href="#catalogue">Catalogue</a></li>
+    <li><a href="#categories">Catégories</a></li>
+    <li><a href="#promo">Promotions</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="openCart()">
+      🛍 Panier <span class="cart-num" id="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Max Shopping — Tchad</p>
+    <h1>Mode &amp;<em>Style pour tous</em></h1>
+    <p class="hero-sub">Vêtements femme, homme et accessoires de qualité. Paiement Mobile Money, livraison à domicile, commande rapide sur WhatsApp.</p>
+    <div class="hero-btns">
+      <a href="#catalogue" class="btn-gold">
+        Voir le catalogue
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://wa.me/+23561737418?text=Bonjour%20Max%20Shopping%2C%20je%20voudrais%20voir%20vos%20produits%20!" class="btn-outline" target="_blank">
+        📲 Commander sur WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-showcase">
+      <div class="showcase-item">
+        <span class="showcase-emoji">👗</span>
+        <div class="showcase-name">Robe Wax</div>
+        <div class="showcase-price">18 500 FCFA</div>
+      </div>
+      <div class="showcase-item">
+        <span class="showcase-emoji">👔</span>
+        <div class="showcase-name">Chemise Lin</div>
+        <div class="showcase-price">12 000 FCFA</div>
+      </div>
+      <div class="showcase-item">
+        <span class="showcase-emoji">👜</span>
+        <div class="showcase-name">Sac Cuir</div>
+        <div class="showcase-price">22 000 FCFA</div>
+      </div>
+      <div class="showcase-item">
+        <span class="showcase-emoji">⌚</span>
+        <div class="showcase-name">Montre Dorée</div>
+        <div class="showcase-price">32 000 FCFA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-icon">👥</span><span class="stat-num">500+</span><span class="stat-label">Clients satisfaits</span></div>
+  <div class="stat"><span class="stat-icon">📦</span><span class="stat-num">120+</span><span class="stat-label">Articles disponibles</span></div>
+  <div class="stat"><span class="stat-icon">🚚</span><span class="stat-num">48h</span><span class="stat-label">Livraison à domicile</span></div>
+  <div class="stat"><span class="stat-icon">💚</span><span class="stat-num">100%</span><span class="stat-label">Paiement sécurisé</span></div>
+</div>
+
+<!-- CATÉGORIES -->
+<section class="categories" id="categories">
+  <div class="sec-header">
+    <div>
+      <p class="sec-tag">Explorez</p>
+      <h2 class="sec-title">Nos Catégories</h2>
+    </div>
+    <a href="#catalogue" class="see-all">Tout voir →</a>
+  </div>
+  <div class="cats-grid">
+    <div class="cat-card" onclick="filterAndScroll('femme')">
+      <div class="cat-bg">👗</div>
+      <div class="cat-overlay">
+        <div class="cat-name">Mode Femme</div>
+        <div class="cat-count">Robes, ensembles, tenues de fête</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterAndScroll('homme')">
+      <div class="cat-bg">👔</div>
+      <div class="cat-overlay">
+        <div class="cat-name">Mode Homme</div>
+        <div class="cat-count">Chemises, boubous, djellabas</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterAndScroll('accessoires')">
+      <div class="cat-bg">👜</div>
+      <div class="cat-overlay">
+        <div class="cat-name">Accessoires</div>
+        <div class="cat-count">Sacs, montres, bijoux</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterAndScroll('promo')">
+      <div class="cat-bg">🏷</div>
+      <div class="cat-overlay">
+        <div class="cat-name">Promotions</div>
+        <div class="cat-count">Jusqu'à -40% sur une sélection</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterAndScroll('nouveautes')">
+      <div class="cat-bg">✨</div>
+      <div class="cat-overlay">
+        <div class="cat-name">Nouveautés</div>
+        <div class="cat-count">Dernières arrivées</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGUE -->
+<section class="products-section" id="catalogue">
+  <div class="sec-header">
+    <div>
+      <p class="sec-tag">Notre sélection</p>
+      <h2 class="sec-title">Catalogue Complet</h2>
+    </div>
+  </div>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filter('all',this)">Tout</button>
+    <button class="filter-btn" onclick="filter('femme',this)">Femme</button>
+    <button class="filter-btn" onclick="filter('homme',this)">Homme</button>
+    <button class="filter-btn" onclick="filter('accessoires',this)">Accessoires</button>
+    <button class="filter-btn" onclick="filter('promo',this)">Promotions</button>
+    <button class="filter-btn" onclick="filter('new',this)">Nouveautés</button>
+  </div>
+  <div class="products-grid" id="products-grid"></div>
+</section>
+
+<!-- PROMO SECTION -->
+<div class="promo-section" id="promo">
+  <div class="promo-content">
+    <p class="promo-tag">⚡ Offre Flash</p>
+    <h2 class="promo-title">Jusqu'à <span>–35%</span><br>sur tout le catalogue</h2>
+    <p class="promo-sub">Profitez de notre vente flash exceptionnelle. Stocks limités — commandez maintenant avant la fin de l'offre !</p>
+    <a href="#catalogue" class="btn-gold">Je profite de l'offre →</a>
+  </div>
+  <div class="timer-wrap">
+    <p class="timer-label-top">L'offre se termine dans</p>
+    <div class="timer">
+      <div class="t-block"><span class="t-num" id="t-h">11</span><span class="t-label">Heures</span></div>
+      <span class="t-sep">:</span>
+      <div class="t-block"><span class="t-num" id="t-m">47</span><span class="t-label">Minutes</span></div>
+      <span class="t-sep">:</span>
+      <div class="t-block"><span class="t-num" id="t-s">33</span><span class="t-label">Secondes</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAIEMENT -->
+<section class="payment-section">
+  <div class="sec-header">
+    <div>
+      <p class="sec-tag">Commandez facilement</p>
+      <h2 class="sec-title">Modes de Paiement & Livraison</h2>
+    </div>
+  </div>
+  <div class="payment-cards">
+    <div class="payment-card">
+      <span class="payment-icon">📱</span>
+      <div class="payment-name">Mobile Money</div>
+      <div class="payment-desc">Airtel Money, Moov Money, Wave — payez en toute sécurité depuis votre téléphone, en quelques secondes.</div>
+    </div>
+    <div class="payment-card">
+      <span class="payment-icon">🚚</span>
+      <div class="payment-name">Livraison à Domicile</div>
+      <div class="payment-desc">Livraison rapide en 24–48h à N'Djamena et dans les principales villes du Tchad. Gratuite dès 30 000 FCFA.</div>
+    </div>
+    <div class="payment-card">
+      <span class="payment-icon">💬</span>
+      <div class="payment-name">Commande WhatsApp</div>
+      <div class="payment-desc">Envoyez votre commande directement sur WhatsApp. Réponse rapide, conseils personnalisés, suivi en temps réel.</div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="reviews-section" id="avis">
+  <div class="sec-header">
+    <div>
+      <p class="sec-tag">Ils nous font confiance</p>
+      <h2 class="sec-title">Avis de nos Clients</h2>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">J'ai commandé une robe pour le mariage de ma cousine. Elle était magnifique, exactement comme sur la photo. La livraison était rapide et l'emballage très soigné. Je recommande vivement !</p>
+      <div class="review-author">
+        <div class="r-avatar">A</div>
+        <div>
+          <div class="r-name">Amina Koumaye</div>
+          <div class="r-loc">N'Djamena</div>
+          <div class="r-verified">✓ Achat vérifié</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Service client excellent ! J'ai posé des questions via WhatsApp et j'ai eu une réponse immédiate. Le boubou que j'ai reçu est de très bonne qualité. Max Shopping c'est sérieux.</p>
+      <div class="review-author">
+        <div class="r-avatar">M</div>
+        <div>
+          <div class="r-name">Mahamat Idriss</div>
+          <div class="r-loc">Moundou</div>
+          <div class="r-verified">✓ Achat vérifié</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">Le sac que j'ai commandé est superbe et le prix était très correct. Le paiement Mobile Money était simple et rapide. Je reviendrai pour acheter d'autres articles !</p>
+      <div class="review-author">
+        <div class="r-avatar">F</div>
+        <div>
+          <div class="r-name">Fatimé Allahi</div>
+          <div class="r-loc">Abéché</div>
+          <div class="r-verified">✓ Achat vérifié</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA WHATSAPP -->
+<section class="wa-section" id="contact">
+  <p class="sec-tag" style="color:rgba(255,255,255,.5)">On est là pour vous</p>
+  <h2>Commandez en <span>2 minutes</span><br>sur WhatsApp</h2>
+  <p>Envoyez-nous un message, nous vous conseillons et traitons votre commande immédiatement. Disponible tous les jours.</p>
+  <a href="https://wa.me/+23561737418?text=Bonjour%20Max%20Shopping%20!%20Je%20voudrais%20passer%20une%20commande." class="wa-big-btn" target="_blank">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Contacter Max Shopping
+  </a>
+  <p class="wa-info">📞 +235 61 73 74 18 — Réponse en moins de 30 minutes</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="footer-logo">MAX<span>shopping</span></a>
+      <p class="footer-desc">Votre boutique de mode et d'accessoires au Tchad. Qualité, style et service client irréprochable. Commandez facilement via WhatsApp ou Mobile Money.</p>
+      <div class="social-links">
+        <a class="social-link" href="#" title="Facebook">📘</a>
+        <a class="social-link" href="#" title="Instagram">📷</a>
+        <a class="social-link" href="https://wa.me/+23561737418" target="_blank" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Boutique</h4>
+      <ul>
+        <li><a href="#">Mode Femme</a></li>
+        <li><a href="#">Mode Homme</a></li>
+        <li><a href="#">Accessoires</a></li>
+        <li><a href="#">Nouveautés</a></li>
+        <li><a href="#">Promotions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service</h4>
+      <ul>
+        <li><a href="#">Comment commander</a></li>
+        <li><a href="#">Livraison</a></li>
+        <li><a href="#">Mobile Money</a></li>
+        <li><a href="#">Retours</a></li>
+        <li><a href="#">Guide des tailles</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/+23561737418" target="_blank">WhatsApp : +235 61 73 74 18</a></li>
+        <li><a href="#">N'Djamena, Tchad</a></li>
+        <li><a href="#">Lun–Sam : 8h–20h</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Max Shopping — Tous droits réservés</span>
+    <span>Fait avec ❤️ au Tchad</span>
+  </div>
+</footer>
+
+<!-- PANIER SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head">
+    <h3>Mon Panier</h3>
+    <div class="cart-head-right">
+      <span class="cart-count-label" id="cart-count-label">0 article</span>
+      <button class="close-cart" onclick="closeCart()">×</button>
+    </div>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div class="cart-foot" id="cart-foot" style="display:none">
+    <div class="cart-subtotal"><span>Sous-total</span><span id="cart-sub">0 FCFA</span></div>
+    <div class="cart-subtotal"><span>Livraison</span><span style="color:var(--vert)">Gratuite dès 30 000 FCFA</span></div>
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span class="cart-total-amount" id="cart-total">0 FCFA</span>
+    </div>
+    <button class="checkout-wa" onclick="commanderWA()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Commander sur WhatsApp
+    </button>
+    <button class="checkout-mm" onclick="commanderMM()">💳 Payer par Mobile Money</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const WA = '+23561737418';
+
+const PRODUCTS = [
+  {id:1,name:'Robe Wax Festive',cat:'femme',tags:['femme','promo'],emoji:'👗',price:18500,old:26000,badge:'promo',badgeLabel:'–29%'},
+  {id:2,name:'Chemise Lin Classique',cat:'homme',tags:['homme','new'],emoji:'👔',price:12000,old:null,badge:'new',badgeLabel:'Nouveau'},
+  {id:3,name:'Sac Cuir Premium',cat:'accessoires',tags:['accessoires','promo'],emoji:'👜',price:22000,old:32000,badge:'promo',badgeLabel:'–31%'},
+  {id:4,name:'Boubou Grand Occasion',cat:'homme',tags:['homme','new'],emoji:'🥻',price:35000,old:null,badge:'new',badgeLabel:'Nouveau'},
+  {id:5,name:'Robe Longue Brodée',cat:'femme',tags:['femme','promo'],emoji:'👘',price:24000,old:34000,badge:'promo',badgeLabel:'–29%'},
+  {id:6,name:'Ceinture Cuir Dorée',cat:'accessoires',tags:['accessoires'],emoji:'👛',price:8500,old:null,badge:'',badgeLabel:''},
+  {id:7,name:'Ensemble Wax Moderne',cat:'femme',tags:['femme','promo','new'],emoji:'🧥',price:28000,old:39000,badge:'top',badgeLabel:'Top vente'},
+  {id:8,name:'Mocassins Cuir',cat:'homme',tags:['homme'],emoji:'👞',price:19500,old:null,badge:'',badgeLabel:''},
+  {id:9,name:'Foulard Soie Imprimé',cat:'accessoires',tags:['accessoires','promo'],emoji:'🧣',price:6500,old:9500,badge:'promo',badgeLabel:'–32%'},
+  {id:10,name:'Jupe Plissée Élégante',cat:'femme',tags:['femme','new'],emoji:'🩱',price:14000,old:null,badge:'new',badgeLabel:'Nouveau'},
+  {id:11,name:'Montre Dorée Classique',cat:'accessoires',tags:['accessoires','promo','top'],emoji:'⌚',price:32000,old:46000,badge:'promo',badgeLabel:'–30%'},
+  {id:12,name:'Djellaba Homme Premium',cat:'homme',tags:['homme','new'],emoji:'🧕',price:42000,old:null,badge:'new',badgeLabel:'Nouveau'},
+];
+
+let cart = [];
+let activeFilter = 'all';
+
+function fcfa(n){ return n.toLocaleString('fr-FR')+' FCFA'; }
+
+function renderProducts(f){
+  const g = document.getElementById('products-grid');
+  const list = f==='all' ? PRODUCTS
+    : f==='promo' ? PRODUCTS.filter(p=>p.tags.includes('promo'))
+    : f==='new'||f==='nouveautes' ? PRODUCTS.filter(p=>p.tags.includes('new'))
+    : PRODUCTS.filter(p=>p.cat===f);
+
+  g.innerHTML = list.map(p=>`
+    <div class="product-card">
+      <div class="p-img-wrap">
+        <div class="p-img" style="background:${getBg(p.cat)}">${p.emoji}</div>
+        ${p.badge?`<span class="p-badge badge-${p.badge}">${p.badgeLabel}</span>`:''}
+        <div class="p-overlay">
+          <button class="p-add-btn" onclick="addToCart(${p.id},event)">🛒 Ajouter</button>
+          <button class="p-wa-btn" onclick="buyNowWA(${p.id},event)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Acheter maintenant
+          </button>
+        </div>
+      </div>
+      <div class="p-info">
+        <p class="p-cat">${p.cat}</p>
+        <h3 class="p-name">${p.name}</h3>
+        <div class="p-prices">
+          <span class="p-price">${fcfa(p.price)}</span>
+          ${p.old?`<span class="p-old">${fcfa(p.old)}</span>`:''}
+          ${p.old?`<span class="p-save">-${Math.round((1-p.price/p.old)*100)}%</span>`:''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function getBg(cat){
+  return cat==='femme'?'linear-gradient(135deg,#f8f0fa,#f0e4f7)'
+    :cat==='homme'?'linear-gradient(135deg,#e8f0f8,#d8eaf5)'
+    :'linear-gradient(135deg,#f5f0e8,#ede4d4)';
+}
+
+function filter(f, btn){
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(f);
+}
+
+function filterAndScroll(f){
+  document.querySelectorAll('.filter-btn').forEach(b=>{
+    if(b.textContent.toLowerCase().includes(f==='new'?'nouveau':f==='promo'?'promo':f))
+      b.classList.add('active');
+    else b.classList.remove('active');
+  });
+  renderProducts(f);
+  document.getElementById('catalogue').scrollIntoView({behavior:'smooth'});
+}
+
+function addToCart(id, e){
+  if(e) e.stopPropagation();
+  const p = PRODUCTS.find(x=>x.id===id);
+  const ex = cart.find(x=>x.id===id);
+  if(ex) ex.qty++;
+  else cart.push({...p, qty:1});
+  updateCart();
+  toast(`✓ "${p.name}" ajouté au panier`);
+}
+
+function buyNowWA(id, e){
+  if(e) e.stopPropagation();
+  const p = PRODUCTS.find(x=>x.id===id);
+  const msg = `Bonjour Max Shopping !\n\nJe voudrais commander :\n• ${p.name} — ${fcfa(p.price)}\n\nMerci !`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function updateCart(){
+  const total = cart.reduce((s,i)=>s+i.price*i.qty, 0);
+  const count = cart.reduce((s,i)=>s+i.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+  document.getElementById('cart-count-label').textContent = count + ' article' + (count>1?'s':'');
+
+  const body = document.getElementById('cart-body');
+  const foot = document.getElementById('cart-foot');
+
+  if(cart.length===0){
+    body.innerHTML=`<div class="cart-empty"><span class="cart-empty-icon">🛍</span><p>Votre panier est vide</p><a href="#catalogue" class="btn-gold" onclick="closeCart()" style="font-size:12px;padding:11px 22px">Voir le catalogue</a></div>`;
+    foot.style.display='none';
+    return;
+  }
+  foot.style.display='block';
+  document.getElementById('cart-sub').textContent = fcfa(total);
+  document.getElementById('cart-total').textContent = fcfa(total);
+
+  body.innerHTML = cart.map(i=>`
+    <div class="cart-item">
+      <div class="ci-img">${i.emoji}</div>
+      <div class="ci-info">
+        <div class="ci-name">${i.name}</div>
+        <div class="ci-price">${fcfa(i.price)}</div>
+        <div class="ci-qty">
+          <button class="qty-btn" onclick="chgQty(${i.id},-1)">−</button>
+          <span class="qty-val">${i.qty}</span>
+          <button class="qty-btn" onclick="chgQty(${i.id},1)">+</button>
+        </div>
+      </div>
+      <button class="ci-del" onclick="delItem(${i.id})">×</button>
+    </div>
+  `).join('');
+}
+
+function chgQty(id, d){
+  const i = cart.find(x=>x.id===id);
+  if(!i) return;
+  i.qty += d;
+  if(i.qty<=0) cart = cart.filter(x=>x.id!==id);
+  updateCart();
+}
+function delItem(id){ cart=cart.filter(x=>x.id!==id); updateCart(); }
+
+function openCart(){ document.getElementById('cart-drawer').classList.add('open'); document.getElementById('cart-overlay').classList.add('open'); }
+function closeCart(){ document.getElementById('cart-drawer').classList.remove('open'); document.getElementById('cart-overlay').classList.remove('open'); }
+
+function commanderWA(){
+  if(!cart.length) return;
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const lines = cart.map(i=>`• ${i.name} x${i.qty} = ${fcfa(i.price*i.qty)}`).join('\n');
+  const msg = `Bonjour Max Shopping ! 👋\n\nJe voudrais commander :\n${lines}\n\n💰 *Total : ${fcfa(total)}*\n\nMerci !`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+function commanderMM(){
+  toast('💳 Envoyez votre paiement Mobile Money au +235 61 73 74 18, puis confirmez par WhatsApp.');
+}
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3200);
+}
+
+// Timer
+function startTimer(){
+  let h=11, m=47, s=33;
+  setInterval(()=>{
+    s--;
+    if(s<0){s=59;m--;}
+    if(m<0){m=59;h--;}
+    if(h<0){h=23;m=59;s=59;}
+    document.getElementById('t-h').textContent=String(h).padStart(2,'0');
+    document.getElementById('t-m').textContent=String(m).padStart(2,'0');
+    document.getElementById('t-s').textContent=String(s).padStart(2,'0');
+  },1000);
+}
+
+renderProducts('all');
+updateCart();
+startTimer();
+</script>
+</body>
+</html>
